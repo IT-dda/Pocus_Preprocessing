@@ -35,7 +35,7 @@ for i in range(8):
         os.mkdir(test_i_dir)
 
 
-gray_dir = os.path.join(BASE_DIR, "gray")
+gray_dir = os.path.join(BASE_DIR, "face")
 
 # 파일명 가져오기
 fnames = []

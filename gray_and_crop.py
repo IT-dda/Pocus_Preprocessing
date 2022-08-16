@@ -27,12 +27,17 @@ for i in range(8):
         img_gray = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2GRAY)
 
         # crop image
+        # h, w = img_gray.shape
+        # set_size = min(h, w)
+        # mid_x, mid_y = w // 2, h // 2
+        # offset_x, offset_y = set_size // 2, set_size // 2
+        # crop_img = img_gray[mid_y - offset_y : mid_y + offset_y, mid_x - offset_x : mid_x + offset_x]
+
+        # padding
         h, w = img_gray.shape
-        set_size = min(h, w)
-        mid_x, mid_y = w // 2, h // 2
-        offset_x, offset_y = set_size // 2, set_size // 2
-        crop_img = img_gray[mid_y - offset_y : mid_y + offset_y, mid_x - offset_x : mid_x + offset_x]
+        dif = w - h
+        img_square = cv2.copyMakeBorder(img_gray, dif // 2, dif // 2, 0, 0, cv2.BORDER_CONSTANT, value=[0, 0, 0])
 
         # ./upper_pose/gray/N/file_name.jpg
         write_path = os.path.join(i_dir_gray, img)
-        cv2.imwrite(write_path, crop_img)
+        cv2.imwrite(write_path, img_square)
