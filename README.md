@@ -17,12 +17,12 @@
 
 **실행 순서**
 
-- 실행을 위해 가상환경 생성 후 cv2, matplotlib, tqdm 설치 필요
+- 실행을 위해 가상환경 생성 후 cv2, matplotlib, tqdm, mediapipe 설치 필요
 
 1. flip_image.py
 
 2. fliped 이미지 폴더 변경
 
-3. gray_and_crop.py
+3. preprocessing.py
 
 4. split_data.py

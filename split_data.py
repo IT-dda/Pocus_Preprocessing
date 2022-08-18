@@ -35,19 +35,19 @@ for i in range(8):
         os.mkdir(test_i_dir)
 
 
-gray_dir = os.path.join(BASE_DIR, "face")
+target_dir = os.path.join(BASE_DIR, "pose")
 
 # 파일명 가져오기
 fnames = []
 for i in range(8):
-    dir_i = os.path.join(gray_dir, str(i))
+    dir_i = os.path.join(target_dir, str(i))
     img_list = [img for img in os.listdir(dir_i) if img.endswith("jpg")]
     random.shuffle(img_list)  # 랜덤으로 파일 나누도록
     fnames.append(img_list)
 
 # 파일 분류
 for idx, fname in enumerate(fnames):
-    i_dir = os.path.join(gray_dir, str(idx))
+    i_dir = os.path.join(target_dir, str(idx))
     i_dir_train = os.path.join(train_dir, str(idx))
     # i_dir_validation = os.path.join(validation_dir, str(idx))
     i_dir_test = os.path.join(test_dir, str(idx))
