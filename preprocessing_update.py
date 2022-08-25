@@ -8,7 +8,7 @@ mp_pose = mp.solutions.pose
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 
-BG_COLOR = (192, 192, 192)  # gray
+BG_COLOR = (0, 0, 0)  # black
 
 BASE_DIR = "./upper_pose/"
 ORIGINAL_DIR = os.path.join(BASE_DIR, "original")
@@ -60,7 +60,7 @@ for i in range(8):
             condition = np.stack((results.segmentation_mask,) * 3, axis=-1) > 0.1
             bg_image = np.zeros(image.shape, dtype=np.uint8)
             bg_image[:] = BG_COLOR
-            annotated_image = np.where(condition, annotated_image, bg_image)
+            annotated_image = np.where(condition, bg_image, bg_image)
 
             # Draw pose landmarks on the image.
             mp_drawing.draw_landmarks(
